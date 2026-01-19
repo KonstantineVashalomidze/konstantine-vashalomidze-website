@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(title=~{::title}, content=~{::#main-content-wrapper}, seo_tags=~{::#seo-tags-wrapper})}">
+<head>
+    <title th:text="${post.title}">Post Title</title>
+    <th:block th:fragment="seo_tags">
+        <meta name="description" th:content="${post.summary}">
+        <meta property="og:title" th:content="${post.title}" />
+        <meta property="og:description" th:content="${post.summary}" />
+        <meta property="og:type" content="article" />
+    </th:block>
+</head>
+<body>
+    <div id="main-content-wrapper" th:fragment="content">
+        <article class="post-full">
+            <header>
+                <h1 th:text="${post.title}">Post Title</h1>
+                <p class="post-meta">
+                    <time th:datetime="${#temporals.format(post.publishedDate, 'yyyy-MM-dd')}" th:text="${#temporals.format(post.publishedDate, 'MMMM dd, yyyy')}">January 18, 2026</time>
+                </p>
+            </header>
+            <div th:utext="${contentAsHtml}">
+                <!-- Post content is rendered here -->
+            </div>
+        </article>
+    </div>
+</body>
+</html>

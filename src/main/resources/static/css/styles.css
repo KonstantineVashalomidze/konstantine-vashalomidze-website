@@ -1,0 +1,150 @@
+:root {
+    --font-family: monospace;
+    --max-width: 800px;
+    --line-height: 1.6;
+}
+
+body {
+    font-family: var(--font-family), serif;
+    line-height: var(--line-height);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main, header, footer {
+    width: 100%;
+    max-width: var(--max-width);
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+article {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 8px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+
+    top: 0;
+
+}
+
+
+
+table {
+
+    border-collapse: collapse;
+
+    width: 100%;
+
+    margin-top: 2rem;
+
+}
+
+
+
+th, td {
+
+
+
+    padding: 12px 15px;
+
+
+
+    text-align: left;
+
+
+
+    border-bottom: 1px solid #ddd;
+
+
+
+}
+
+
+
+
+
+
+
+/* Profile Page Specifics */
+
+
+
+.profile-header {
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    gap: 2rem;
+
+
+
+    margin-bottom: 2rem;
+
+}
+
+
+.profile-picture {
+
+
+
+    border-radius: 50%;
+
+
+
+}
+
+
+
+

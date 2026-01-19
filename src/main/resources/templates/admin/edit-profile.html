@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<main>
+    <h1>Edit Profile</h1>
+    <form action="#" th:action="@{/admin/profile}" th:object="${profile}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div>
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" th:field="*{fullName}">
+        </div>
+        <div>
+            <label for="tagline">Tagline (Markdown supported)</label>
+            <textarea id="tagline" th:field="*{tagline}" rows="2"></textarea>
+        </div>
+        <div>
+            <label for="aboutMe">About Me (Markdown supported)</label>
+            <textarea id="aboutMe" th:field="*{aboutMe}" rows="8"></textarea>
+        </div>
+        <div>
+            <label for="technicalSkills">Technical Skills (Markdown supported)</label>
+            <textarea id="technicalSkills" th:field="*{technicalSkills}" rows="8"></textarea>
+        </div>
+        <div>
+            <label for="education">Education (Markdown supported)</label>
+            <textarea id="education" th:field="*{education}" rows="5"></textarea>
+        </div>
+        <div>
+            <label for="contact">Contact (Markdown supported)</label>
+            <textarea id="contact" th:field="*{contact}" rows="5"></textarea>
+        </div>
+        <div>
+            <label for="experience">Experience (Markdown supported)</label>
+            <textarea id="experience" th:field="*{experience}" rows="8"></textarea>
+        </div>
+        <div>
+            <label for="projects">Projects (Markdown supported)</label>
+            <textarea id="projects" th:field="*{projects}" rows="8"></textarea>
+        </div>
+        <div>
+            <label for="resumeUrl">Resume URL</label>
+            <input type="text" id="resumeUrl" th:field="*{resumeUrl}">
+        </div>
+        <div>
+            <label for="backgroundMusicUrl">Background Music URL</label>
+            <input type="text" id="backgroundMusicUrl" th:field="*{backgroundMusicUrl}">
+        </div>
+        <div>
+            <button type="submit">Save Profile</button>
+            <a href="/admin">Cancel</a>
+        </div>
+    </form>
+</main>
+</body>
+</html>

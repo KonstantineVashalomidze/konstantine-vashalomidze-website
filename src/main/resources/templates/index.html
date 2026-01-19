@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(title=~{::title}, content=~{::#main-content-wrapper}, seo_tags=~{})}">
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <div id="main-content-wrapper" th:fragment="content">
+        <section>
+            <article th:each="post : ${posts}">
+                <header>
+                    <h2><a th:href="@{/posts/{slug}(slug=${post.slug})}" th:text="${post.title}">Post Title</a></h2>
+                    <p class="post-meta">
+                        <time th:datetime="${#temporals.format(post.publishedDate, 'yyyy-MM-dd')}" th:text="${#temporals.format(post.publishedDate, 'MMMM dd, yyyy')}">January 18, 2026</time>
+                    </p>
+                </header>
+                <p th:text="${post.summary}">Post summary goes here...</p>
+            </article>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, content, seo_tags)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">Layout Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <th:block th:replace="${seo_tags} ?: ~{}"></th:block>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <nav>
+            <a href="/">Blogs</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="/profile">Profile</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <th:block th:replace="${content}"></th:block>
+    </main>
+
+    <footer>
+        <p>&copy; <span th:text="${#dates.year(#dates.createNow())}">2026</span> Konstantine Vashalomidze</p>
+        <p><a href="#" id="music-toggle">Music: OFF</a></p>
+    </footer>
+
+    <audio id="background-music" th:src="${backgroundMusicUrl}" loop></audio>
+    <script th:src="@{/js/global.js}"></script>
+</body>
+</html>

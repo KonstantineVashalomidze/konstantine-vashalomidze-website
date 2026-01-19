@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(title=~{::title}, content=~{::#main-content-wrapper}, seo_tags=~{::#seo-tags-wrapper})}">
+<head>
+    <title th:text="${profile.fullName} + ' - Profile'">Konstantine Vashalomidze - Profile</title>
+    <th:block id="seo-tags-wrapper" th:fragment="seo_tags">
+        <meta name="author" th:content="${profile.fullName}">
+        <meta name="description" th:content="${profile.tagline}">
+        <meta property="og:title" th:content="${profile.fullName} + ' - Profile'" />
+        <meta property="og:description" th:content="${profile.tagline}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" th:content="@{/profile}" />
+        <meta property="og:image" content="https://github.com/KonstantineVashalomidze/KonstantineVashalomidze.github.io/blob/main/konstantine-vashalomidze/resources/images/profile1200x630.png?raw=true" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+    </th:block>
+</head>
+<body>
+<div id="main-content-wrapper" th:fragment="content">
+    <article class="profile">
+        <header class="profile-header">
+            <img src="https://github.com/KonstantineVashalomidze/KonstantineVashalomidze.github.io/blob/main/konstantine-vashalomidze/resources/images/profile210x210.png?raw=true" alt="Profile Picture of Konstantine Vashalomidze" class="profile-picture">
+            <div>
+                <h1 th:text="${profile.fullName}">Konstantine Vashalomidze</h1>
+                <div th:utext="${taglineHtml}"></div>
+            </div>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div th:utext="${aboutMeHtml}"></div>
+        </section>
+
+        <section id="technical-skills">
+            <h2>Technical Skills</h2>
+            <div th:utext="${technicalSkillsHtml}"></div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div th:utext="${educationHtml}"></div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div th:utext="${contactHtml}"></div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div th:utext="${experienceHtml}"></div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div th:utext="${projectsHtml}"></div>
+        </section>
+
+        <section id="resume">
+            <h2>Resume</h2>
+            <p>
+                <a th:href="${profile.resumeUrl}" download>Download Resume</a>
+            </p>
+        </section>
+    </article>
+</div>
+</body>
+</html>
