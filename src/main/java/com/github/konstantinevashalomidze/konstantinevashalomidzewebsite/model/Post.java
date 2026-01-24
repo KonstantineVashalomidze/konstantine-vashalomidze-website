@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -29,7 +28,6 @@ public class Post {
     @Column(unique = true, nullable = false)
     private String slug;
 
-    @Lob
     @NotNull
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;

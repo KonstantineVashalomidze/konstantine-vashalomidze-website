@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,27 +19,21 @@ public class Profile {
 
     private String tagline;
 
-    @Lob
     @Column(columnDefinition = "TEXT")
     private String aboutMe;
 
-    @Lob
     @Column(columnDefinition = "TEXT")
     private String technicalSkills;
 
-    @Lob
     @Column(columnDefinition = "TEXT")
     private String education;
 
-    @Lob
     @Column(columnDefinition = "TEXT")
     private String contact;
 
-    @Lob
     @Column(columnDefinition = "TEXT")
     private String experience;
 
-    @Lob
     @Column(columnDefinition = "TEXT")
     private String projects;
 
