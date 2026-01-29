@@ -34,5 +34,5 @@ volumes:
   db_data:
   
 networks:
-  proxy_net:        
-    name: bridge
+  app-network:      
+    driver: bridge
