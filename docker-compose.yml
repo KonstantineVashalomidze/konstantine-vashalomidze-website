@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: konstantine-vashalomidze-website-db
+    resart: always
+    environment: 
+      POSTGRES_USER: youdontgetthis
+      POSTGRES_PASSWORD: youdontgetthis
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  app:
+    build: .
+    container_name: konstantine-vashalomidze-website
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      DB_URL: jdbc:postgresql;//postgres:5432/konstantine-vashalomidze-website-db
+      DB_USERNAME: youdontgetthis
+      DB_PASSWORD: youdontgetthis
+      ADMIN_USERNAME: youdontgetthis
+      ADMIN_PASSWORD: youdontgetthis
+
+volumes:
+  db_data:
+  
