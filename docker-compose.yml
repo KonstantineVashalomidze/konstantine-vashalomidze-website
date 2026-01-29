@@ -19,7 +19,7 @@ services:
     depends_on:
       - postgres
     environment:
-      DB_URL: jdbc:postgresql;//postgres:5432/konstantine-vashalomidze-website-db
+      DB_URL: jdbc:postgresql://postgres:5432/konstantine-vashalomidze-website-db
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
       ADMIN_USERNAME: ${ADMIN_USERNAME}
