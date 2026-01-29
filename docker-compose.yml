@@ -5,8 +5,8 @@ services:
     container_name: konstantine-vashalomidze-website-db
     resart: always
     environment: 
-      POSTGRES_USER: youdontgetthis
-      POSTGRES_PASSWORD: youdontgetthis
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - db_data:/var/lib/postgresql/data
   app:
@@ -19,10 +19,10 @@ services:
       - postgres
     environment:
       DB_URL: jdbc:postgresql;//postgres:5432/konstantine-vashalomidze-website-db
-      DB_USERNAME: youdontgetthis
-      DB_PASSWORD: youdontgetthis
-      ADMIN_USERNAME: youdontgetthis
-      ADMIN_PASSWORD: youdontgetthis
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
 
 volumes:
   db_data:
