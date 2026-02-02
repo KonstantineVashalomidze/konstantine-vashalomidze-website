@@ -1,24 +1,25 @@
-FROM openjdk:25-ea-21-jdk-slim AS builder
-WORKDIR /app
+FROM eclipse-temurin:25-jdk-noble AS build
 
-COPY gradlew .
-COPY gradle gradle
-COPY build.gradle .
-COPY settings.gradle .
+WORKDIR /root
+
+COPY build.gradle settings.gradle gradlew ./
+
+copy gradle ./gradle
 
 RUN chmod +x gradlew
 
-RUN ./gradlew dependencies --no-daemon
+RUN ./gradlew dependencies --no-daemon || true
 
-COPY src src
+COPY src ./src
 
-RUN ./gradlew bootJar -x test --no-daemon
+RUN ./gradlew bootJar --no-daemon
 
-FROM openjdk:25-ea-21-jdk-slim
-WORKDIR /app
+FROM eclipse-temurin:25-jre-noble
+WORKDIR /root
 
-COPY --from=builder /app/build/libs/*.jar app.jar
+COPY --from=build /app/build/libs/konstantine-vashalomidze-website-0.0.1.jar.jar konstantine-vashalomidze-website.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "konstantine-vashalomidze-website.jar"]
+

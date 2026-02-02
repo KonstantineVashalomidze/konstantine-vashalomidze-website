@@ -1,5 +1,6 @@
 package com.github.konstantinevashalomidze.konstantinevashalomidzewebsite.controller;
 
+import com.github.konstantinevashalomidze.konstantinevashalomidzewebsite.model.Profile;
 import com.github.konstantinevashalomidze.konstantinevashalomidzewebsite.service.ProfileService;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,7 +17,7 @@ public class GlobalControllerAdvice {
     @ModelAttribute("backgroundMusicUrl")
     public String getBackgroundMusicUrl() {
         return profileService.getProfile()
-                .map(profile -> profile.getBackgroundMusicUrl())
+                .map(Profile::getBackgroundMusicUrl)
                 .orElse(null);
     }
 }

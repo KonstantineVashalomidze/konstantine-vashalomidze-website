@@ -28,8 +28,18 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/", "/posts/**", "/profile", "/css/**", "/js/**", "/images/**", "/error","/h2-console/**").permitAll()
+                        .requestMatchers("/admin/**")
+                        .hasRole("ADMIN")
+                        .requestMatchers(
+                                "/",
+                                "/posts/**",
+                                "/profile",
+                                "/css/**",
+                                "/js/**",
+                                "/images/**",
+                                "/error",
+                                "/h2-console/**")
+                        .permitAll()
                         .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf
