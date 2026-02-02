@@ -17,7 +17,7 @@ RUN ./gradlew bootJar --no-daemon
 FROM eclipse-temurin:25-jre-noble
 WORKDIR /root
 
-COPY --from=build /app/build/libs/konstantine-vashalomidze-website-0.0.1.jar.jar konstantine-vashalomidze-website.jar
+COPY --from=build /app/build/libs/konstantine-vashalomidze-website-0.0.1.jar konstantine-vashalomidze-website.jar
 
 EXPOSE 8080
 
